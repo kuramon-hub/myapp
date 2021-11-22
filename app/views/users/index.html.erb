@@ -1,0 +1,54 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<h3>ユーザー情報一覧</h3>
+ 
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>年齢</th>
+          <th>一言紹介</th>
+          <th>更新日</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+ 
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.age %></td>
+            <td><%= user.introduction %></td>
+            <td><%= user.updated_at %></td>
+            <td><%= user.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+ 
+    <p><%= link_to "ユーザー新規登録", :new_user %></p>
+common.scssを編集する
+CSSも編集します。以下のコードを追加しましょう。
+
+common.scss
+
+    （省略）
+ 
+    table th {
+        background-color: #fbc25b;
+        padding: 10px 20px;
+    }
+ 
+    table td {
+        background-color: #f9ecd5;
+        padding: 10px 20px;
+    }
+ 
+    .notice {
+        background-color: #ccf;
+        padding: 5px;
+    }
