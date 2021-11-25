@@ -1,25 +1,30 @@
-class UsersController < ApplicationController
+  class UsersController < ApplicationController
       def index
-        @users = Users.all
+        @users = User.all
       end
  
       def new
-        @users = Users.new
+        @user = User.new
       end
  
-  def create
-  end
+      def create
+      @user = User.new(params.require(:user).permit(:name, :email, :age, :introduction))
+      if @user.save
+        redirect_to :users
+      else
+        render "new"
+      end
+      end
  
-  def show
-  end
+      def show
+      end
  
-  def edit
-  end
+      def edit
+      end
  
-  def update
-  end
+      def update
+      end
  
-  def destroy
+      def destroy
+      end
   end
-end
-
